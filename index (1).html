@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vettore – Diamo Direzione al Talento</title>
+<meta name="description" content="Vettore gestisce profili, eventi e interviste per giovani sportivi. Diamo Direzione al Talento.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='90 780 990 790'%3E%3Crect x='0' y='0' width='1200' height='1600' fill='%23000'/%3E%3Cpath fill='%238e46d5' d='M583 790L1069 1500L980 1560L583 980L186 1560L97 1500ZM583 1030L808 1362L768 1390L583 1120L398 1390L357 1362Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--v:#8e46d5;--v2:#b98af2;--w:#f6f2fc;--mut:#9d93ab;--line:#2a2133;
+--d:'Unbounded','Arial Black',system-ui,sans-serif;--b:'Manrope',system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--w);font:400 1.05rem/1.6 var(--b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--v2);outline-offset:3px}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+svg.sp{position:absolute;width:0;height:0}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;padding-top:max(1rem,env(safe-area-inset-top));background:linear-gradient(#000c,#0000)}
+nav .lg{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:700 1.05rem var(--d)}
+nav .lg svg{width:34px;height:28px}
+nav ul{display:flex;gap:1.6rem;list-style:none}
+nav ul a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--mut);transition:color .2s}
+nav ul a:hover{color:var(--w)}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:#000a}
+.lang button{font:700 .8rem var(--b);color:var(--mut);background:none;border:0;padding:.35rem .75rem;border-radius:99px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--v);color:#fff}
+@media(max-width:760px){nav ul{display:none}}
+
+/* hero */
+.hero{height:230vh;position:relative}
+.stick{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;text-align:center;padding:0 1rem}
+.stick::before{content:"";position:absolute;width:90vmin;height:90vmin;border-radius:50%;background:radial-gradient(#8e46d555,#0000 65%);top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none}
+.mark{width:min(72vw,500px);height:auto;position:relative;will-change:transform,opacity}
+.mark .o,.mark .i{transform-box:fill-box;transform-origin:50% 100%}
+.mark .o{animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}
+.mark .i{animation:rise 1.1s .3s cubic-bezier(.2,.8,.2,1) both,nudge 3.6s 1.6s ease-in-out infinite}
+@keyframes rise{from{transform:translateY(90px);opacity:0}to{transform:none;opacity:1}}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(-34px)}}
+.word{font:900 clamp(3.2rem,14vw,9.5rem)/1 var(--d);letter-spacing:-.03em;margin-top:-.15em;position:relative;will-change:transform,opacity;animation:fade 1s .7s both}
+.slogan{font:500 clamp(1rem,2.6vw,1.45rem) var(--b);color:var(--v2);margin-top:1rem;position:relative;animation:fade 1s 1s both}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.cue{position:absolute;bottom:max(1.4rem,env(safe-area-inset-bottom));font-size:.85rem;color:var(--mut);animation:fade 1s 1.6s both}
+.cue::after{content:"";display:block;width:1px;height:38px;margin:.5rem auto 0;background:linear-gradient(var(--v2),#0000)}
+
+/* statement */
+.stmt{padding:18vh 0}
+.stmt p{font:700 clamp(1.8rem,5.6vw,4rem)/1.18 var(--d);letter-spacing:-.02em}
+.stmt span{color:#2f2640;transition:color .35s}
+.stmt span.on{color:var(--w)}
+
+/* services */
+section{position:relative}
+h2{font:700 clamp(1.8rem,5vw,3.2rem)/1.1 var(--d);letter-spacing:-.02em;margin-bottom:2.5rem}
+.serv{padding:10vh 0}
+.svc{border-top:1px solid var(--line)}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:0;color:var(--w);text-align:left;cursor:pointer;padding:1.7rem 0;font:700 clamp(1.3rem,4vw,2.3rem) var(--d);transition:color .25s,padding .25s}
+.svc button:hover,.svc button[aria-expanded=true]{color:var(--v2);padding-left:.8rem}
+.svc i{flex:none;width:28px;height:28px;position:relative}
+.svc i::before,.svc i::after{content:"";position:absolute;inset:50% 0 auto;height:3px;margin-top:-1.5px;background:currentColor;transition:transform .3s}
+.svc i::after{transform:rotate(90deg)}
+.svc button[aria-expanded=true] i::after{transform:rotate(0)}
+.pn{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.pn>div{overflow:hidden}
+.pn p{max-width:56ch;color:var(--mut);padding:0 0 1.8rem .8rem;font-size:1.1rem}
+.svc button[aria-expanded=true]+.pn{grid-template-rows:1fr}
+
+/* method */
+.meto{padding:12vh 0}
+.steps{position:relative;padding-left:2.6rem;display:grid;gap:3.2rem}
+.steps::before,.steps::after{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px}
+.steps::before{background:var(--line)}
+.steps::after{background:linear-gradient(var(--v2),var(--v));transform-origin:top;transform:scaleY(var(--t,0))}
+.st{opacity:.3;transition:opacity .5s;position:relative}
+.st.on{opacity:1}
+.st::before{content:"";position:absolute;left:-2.6rem;top:.4rem;width:21px;height:21px;border-radius:50%;background:#000;border:3px solid var(--line);transition:.4s}
+.st.on::before{border-color:var(--v2);background:var(--v)}
+.st h3{font:700 clamp(1.3rem,3.4vw,2rem) var(--d);margin-bottom:.4rem}
+.st p{color:var(--mut);max-width:52ch}
+
+/* who */
+.chi{padding:12vh 0 8vh;overflow:hidden}
+.age{font:900 clamp(4rem,20vw,13rem)/.95 var(--d);letter-spacing:-.05em;background:linear-gradient(100deg,var(--v2),var(--v) 60%,#4a1f80);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:1.5rem}
+.chi p{max-width:50ch;color:var(--mut);font-size:1.15rem}
+.mq{margin-top:5rem;border-block:1px solid var(--line);padding:1.1rem 0;overflow:hidden;white-space:nowrap}
+.mq div{display:inline-block;animation:mq 38s linear infinite;font:700 1.5rem var(--d);color:#3b2d52}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* cta */
+.cta{padding:14vh 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:50%;bottom:-40%;width:130vmin;height:130vmin;transform:translateX(-50%);border-radius:50%;background:radial-gradient(#8e46d566,#0000 65%);pointer-events:none}
+.cta h2{max-width:16ch;margin-inline:auto;font-size:clamp(2.2rem,7vw,4.6rem);position:relative}
+.btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+.btn{display:inline-block;text-decoration:none;font:700 1.05rem var(--b);padding:1.05rem 2rem;border-radius:99px;background:var(--v);color:#fff;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-3px);background:#a15be8}
+.btn.g{background:none;border:2px solid var(--v);color:var(--w)}
+.btn.g:hover{background:#8e46d533}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 max(2rem,env(safe-area-inset-bottom));color:var(--mut);font-size:.9rem}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer svg{width:30px;height:24px}
+
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}*{animation:none!important;transition:none!important}
+.stmt span{color:var(--w)}.st{opacity:1}}
+</style>
+</head>
+<body>
+
+<svg class="sp" aria-hidden="true"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a35cee"/><stop offset="1" stop-color="#7a35c4"/></linearGradient>
+<symbol id="v" viewBox="90 780 990 790"><path fill="url(#g)" d="M583 790L1069 1500L980 1560L583 980L186 1560L97 1500Z"/><path fill="url(#g)" d="M583 1030L808 1362L768 1390L583 1120L398 1390L357 1362Z"/></symbol>
+</defs></svg>
+
+<nav>
+  <a class="lg" href="#top" aria-label="Vettore"><svg viewBox="90 780 990 790"><use href="#v"/></svg>Vettore</a>
+  <ul>
+    <li><a href="#servizi" data-i="n1"></a></li>
+    <li><a href="#metodo" data-i="n2"></a></li>
+    <li><a href="#chi" data-i="n3"></a></li>
+    <li><a href="#contatti" data-i="n4"></a></li>
+  </ul>
+  <div class="lang" role="group" aria-label="Lingua / Language">
+    <button data-l="it" aria-pressed="true">IT</button><button data-l="en" aria-pressed="false">EN</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="stick">
+    <svg class="mark" id="mark" viewBox="90 780 990 790" role="img" aria-label="Vettore">
+      <g class="o"><path fill="url(#g)" d="M583 790L1069 1500L980 1560L583 980L186 1560L97 1500Z"/></g>
+      <g class="i"><path fill="url(#g)" d="M583 1030L808 1362L768 1390L583 1120L398 1390L357 1362Z"/></g>
+    </svg>
+    <h1 class="word" id="word">Vettore</h1>
+    <p class="slogan" data-i="slogan"></p>
+    <div class="cue" data-i="cue"></div>
+  </div>
+</header>
+
+<section class="stmt"><div class="wrap"><p id="stmt"></p></div></section>
+
+<section class="serv" id="servizi"><div class="wrap">
+  <h2 data-i="serv_h"></h2>
+  <div class="svc"><button aria-expanded="false"><span data-i="s1t"></span><i></i></button><div class="pn"><div><p data-i="s1d"></p></div></div></div>
+  <div class="svc"><button aria-expanded="false"><span data-i="s2t"></span><i></i></button><div class="pn"><div><p data-i="s2d"></p></div></div></div>
+  <div class="svc"><button aria-expanded="false"><span data-i="s3t"></span><i></i></button><div class="pn"><div><p data-i="s3d"></p></div></div></div>
+  <div class="svc"><button aria-expanded="false"><span data-i="s4t"></span><i></i></button><div class="pn"><div><p data-i="s4d"></p></div></div></div>
+</div></section>
+
+<section class="meto" id="metodo"><div class="wrap">
+  <h2 data-i="meto_h"></h2>
+  <div class="steps" id="steps">
+    <div class="st"><h3 data-i="m1t"></h3><p data-i="m1d"></p></div>
+    <div class="st"><h3 data-i="m2t"></h3><p data-i="m2d"></p></div>
+    <div class="st"><h3 data-i="m3t"></h3><p data-i="m3d"></p></div>
+  </div>
+</div></section>
+
+<section class="chi" id="chi"><div class="wrap">
+  <div class="age" data-i="age"></div>
+  <p data-i="chi_p"></p>
+</div>
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+</section>
+
+<section class="cta" id="contatti"><div class="wrap">
+  <h2 data-i="cta_h"></h2>
+  <div class="btns">
+    <a class="btn" id="ig" href="#" target="_blank" rel="noopener" data-i="cta_ig"></a>
+    <a class="btn g" id="mail" href="#" data-i="cta_mail" hidden></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <svg viewBox="90 780 990 790" aria-hidden="true"><use href="#v"/></svg>
+  <span>© <span id="yr"></span> Vettore · <span data-i="slogan"></span></span>
+</div></footer>
+
+<script>
+/* ===== DA MODIFICARE ===== */
+const INSTAGRAM = "https://www.instagram.com/vettore.management/";  // link al profilo Instagram
+const EMAIL     = "vettore.management@gmail.com";  // email di contatto; se vuota il pulsante email non appare
+/* ========================= */
+
+const T={
+it:{n1:"Servizi",n2:"Metodo",n3:"Per chi",n4:"Contatti",
+slogan:"Diamo Direzione al Talento",cue:"Scorri",
+stmt:"Il talento da solo non basta. Serve qualcuno che sappia dove puntarlo.",
+serv_h:"Cosa facciamo",
+s1t:"Gestione profili",s1d:"Instagram, TikTok, YouTube: piano editoriale, contenuti e community, con la voce giusta per te.",
+s2t:"Eventi",s2d:"Presentazioni, incontri con i tifosi, serate di squadra: li progettiamo e li organizziamo dall’idea al giorno dopo.",
+s3t:"Interviste e PR",s3d:"Portiamo la tua storia a giornalisti, podcast e media sportivi, e ti prepariamo a raccontarla.",
+s4t:"Strategia d’immagine",s4d:"Chi sei, dove vuoi arrivare, come vuoi essere visto: una direzione chiara per il tuo personal brand.",
+meto_h:"Come lavoriamo",
+m1t:"Ti ascoltiamo",m1d:"Si parte da te: sport, obiettivi, carattere, sogni.",
+m2t:"Tracciamo la direzione",m2d:"Definiamo il piano: cosa dire, dove, con chi e quando.",
+m3t:"Spingiamo",m3d:"Pubblichiamo, organizziamo, misuriamo. E correggiamo la rotta quando serve.",
+age:"Dai 14 anni in su",chi_p:"Dalle prime partite alla carriera da professionista: ogni fase ha bisogno di una voce diversa, e noi la costruiamo con te.",
+sports:["Calcio","Basket","Volley","Tennis","Padel","Nuoto","Atletica","Rugby","Motorsport","Arti marziali","Ciclismo","Sport invernali"],
+cta_h:"Diamo direzione al tuo talento",cta_ig:"Scrivici su Instagram",cta_mail:"Scrivici una email"},
+en:{n1:"Services",n2:"Method",n3:"Who it’s for",n4:"Contact",
+slogan:"Giving Talent a Direction",cue:"Scroll",
+stmt:"Talent alone is not enough. It needs someone who knows where to point it.",
+serv_h:"What we do",
+s1t:"Profile management",s1d:"Instagram, TikTok, YouTube: editorial plan, content and community, in the right voice for you.",
+s2t:"Events",s2d:"Launches, fan meetups, team nights: we design and run them, from the idea to the day after.",
+s3t:"Interviews and PR",s3d:"We bring your story to journalists, podcasts and sports media, and prepare you to tell it.",
+s4t:"Image strategy",s4d:"Who you are, where you’re heading, how you want to be seen: a clear direction for your personal brand.",
+meto_h:"How we work",
+m1t:"We listen",m1d:"It starts with you: sport, goals, character, dreams.",
+m2t:"We set the direction",m2d:"We define the plan: what to say, where, with whom and when.",
+m3t:"We push",m3d:"We publish, organize, measure. And we correct the course when needed.",
+age:"From age 14 and up",chi_p:"From the first matches to a professional career: every stage needs a different voice, and we build it with you.",
+sports:["Football","Basketball","Volleyball","Tennis","Padel","Swimming","Athletics","Rugby","Motorsport","Martial arts","Cycling","Winter sports"],
+cta_h:"Give your talent a direction",cta_ig:"Message us on Instagram",cta_mail:"Send us an email"}};
+
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+let lang="it",words=[];
+const sys=(navigator.language||"").slice(0,2)==="en"?"en":"it";
+try{lang=localStorage.getItem("vl")||sys}catch(e){lang=sys}
+
+function setLang(l){
+  lang=l;const t=T[l];
+  try{localStorage.setItem("vl",l)}catch(e){}
+  document.documentElement.lang=l;
+  $$("[data-i]").forEach(e=>e.textContent=t[e.dataset.i]);
+  $$(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===l));
+  $("#stmt").innerHTML=t.stmt.split(" ").map(w=>"<span>"+w+"</span>").join(" ");
+  words=$$("#stmt span");
+  const s=t.sports.join("  ·  ")+"  ·  ";$("#mq").textContent=s+s+s+s;
+  document.title="Vettore – "+t.slogan;
+  update();
+}
+$$(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+$$(".svc button").forEach(b=>b.onclick=()=>b.setAttribute("aria-expanded",b.getAttribute("aria-expanded")!=="true"));
+
+$("#ig").href=INSTAGRAM;
+if(EMAIL){const m=$("#mail");m.href="mailto:"+EMAIL;m.hidden=false}
+$("#yr").textContent=new Date().getFullYear();
+
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function update(){
+  const vh=innerHeight,hero=$("#top"),y=scrollY;
+  const p=clamp(y/(hero.offsetHeight-vh));
+  if(!still){
+    $("#mark").style.transform=`translateY(${-p*18}vh) scale(${1+p*1.7})`;
+    $("#mark").style.opacity=1-clamp(p*1.25);
+    $("#word").style.transform=`translateY(${-p*14}vh)`;
+    $("#word").style.opacity=1-clamp(p*1.6);
+  }
+  const sr=$("#stmt").getBoundingClientRect();
+  const sp=clamp((vh*.85-sr.top)/(sr.height+vh*.35));
+  words.forEach((w,i)=>w.classList.toggle("on",sp*words.length*1.08>i));
+  const st=$("#steps"),r=st.getBoundingClientRect();
+  st.style.setProperty("--t",clamp((vh*.7-r.top)/r.height));
+  $$(".st").forEach(e=>e.classList.toggle("on",e.getBoundingClientRect().top<vh*.7));
+}
+let tick=false;
+addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(()=>{update();tick=false})}},{passive:true});
+addEventListener("resize",update);
+setLang(lang);
+</script>
+</body>
+</html>
